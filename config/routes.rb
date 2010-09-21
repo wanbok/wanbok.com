@@ -1,4 +1,6 @@
 Wanbok::Application.routes.draw do
+  get "teaser/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
