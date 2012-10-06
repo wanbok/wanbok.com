@@ -1,0 +1,28 @@
+// Place all the styles related to the teaser controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.teaser {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	width: 260px;
+	margin-top: -100px;
+	margin-left: -150px;
+	display: inline-block;
+
+	tr {
+		height: 40px;
+		color: #AAA;
+	}
+	tr.main {
+		color: #000;
+	}
+}
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
