@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @survey.title %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @survey.user %>
+</p>
+
+<p>
+  <b>Sex:</b>
+  <%= @survey.sex %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @survey.age %>
+</p>
+
+
+<% (1..15).each do |q| %>
+  <p>
+    <b>Q<%= q %>:</b>
+    <%= @survey["q#{q}".to_sym] %>
+  </p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>

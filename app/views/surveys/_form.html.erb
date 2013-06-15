@@ -1,0 +1,73 @@
+<div data-role="page" id="page1">
+  <div data-theme="a" data-role="header">
+    <h3>
+      앱 중독 설문조사
+    </h3>
+  </div>
+  <%= form_for(@survey) do |f| %>
+  <% if @survey.errors.any? %>
+  <div id="error_explanation">
+    <h3>작성되지 않은 내용이 있습니다. 모든 내용을 채워주세요.</h3>
+    <ul>
+      <% @survey.errors.each do |err| %>
+      <li><%= err %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= f.hidden_field :title, value: "앱 중독 설문조사" %>
+
+  <div data-role="content">
+    <div data-role="fieldcontain">
+      <%= f.label :user, '핸드폰 번호:' %>
+      <%= f.text_field :user, placeholder: "010-1234-1234", type: "tel" %>
+    </div>
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup" data-type="vertical">
+        <legend>
+          성별:
+        </legend>
+        <input id="survey_sex_m" name="survey[sex]" value="M" data-theme="c" type="radio">
+        <label for="survey_sex_m">
+          남자
+        </label>
+        <input id="survey_sex_f" name="survey[sex]" value="F" data-theme="c" type="radio">
+        <label for="survey_sex_f">
+          여자
+        </label>
+      </fieldset>
+    </div>
+    <div data-role="fieldcontain">
+      <%= f.label :age, '나이:' %>
+      <%= f.text_field :age, placeholder: "나이를 숫자로만 적어주세요.", type: "number" %>
+    </div>
+
+    <% (1..15).each do |q| %>
+    <div data-role="fieldcontain">
+      <fieldset data-role="controlgroup" data-type="vertical">
+        <legend>
+          <%= "질문#{q}. #{question(q-1)}" %>
+        </legend>
+        <input id=<%= "survey_sex_q#{q}_1" %> name=<%= "survey[q#{q}]" %> value="1" data-theme="c" type="radio">
+        <label for=<%= "survey_sex_q#{q}_1" %>>
+          1. 전혀 아니다
+        </label>
+        <input id=<%= "survey_sex_q#{q}_2" %> name=<%= "survey[q#{q}]" %> value="2" data-theme="c" type="radio">
+        <label for=<%= "survey_sex_q#{q}_2" %>>
+          2. 약간 그렇다
+        </label>
+        <input id=<%= "survey_sex_q#{q}_3" %> name=<%= "survey[q#{q}]" %> value="3" data-theme="c" type="radio">
+        <label for=<%= "survey_sex_q#{q}_3" %>>
+          3. 그런 편이다
+        </label>
+        <input id=<%= "survey_sex_q#{q}_4" %> name=<%= "survey[q#{q}]" %> value="4" data-theme="c" type="radio">
+        <label for=<%= "survey_sex_q#{q}_4" %>>
+          4. 매우 그렇다
+        </label>
+      </fieldset>
+    </div>
+    <% end %>
+    <%= f.submit value: "완료" %>
+  </div>
+  <% end %>
