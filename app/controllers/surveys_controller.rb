@@ -20,7 +20,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @survey }
+      format.json { render json: {survey: @survey, aggregation: @aggregation}}
     end
   end
 
