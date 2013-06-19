@@ -6,4 +6,5 @@ class Survey < ActiveRecord::Base
   attr_accessible *ATTRS
 
   validates *ATTRS, presence: true
+  validates :user, uniqueness: true
 end

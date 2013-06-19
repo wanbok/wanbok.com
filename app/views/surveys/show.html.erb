@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @survey.title %>
+  <b>User:</b>
+  <%= @survey.user %>
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @survey.user %>
+  <b>분류:</b>
+  <%= @aggregation[:class] %>
+</p>
+
+<p>
+  <b>총점수:</b>
+  <%= @aggregation[:total] %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @survey.title %>
 </p>
 
 <p>
@@ -19,7 +29,6 @@
   <b>Age:</b>
   <%= @survey.age %>
 </p>
-
 
 <% (1..15).each do |q| %>
   <p>
