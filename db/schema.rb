@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130615175729) do
+ActiveRecord::Schema.define(:version => 20130626054159) do
 
   create_table "surveys", :force => true do |t|
     t.string   "title"
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(:version => 20130615175729) do
     t.integer  "q13"
     t.integer  "q14"
     t.integer  "q15"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+    t.integer  "usage_duration_per_day"
   end
 
 end

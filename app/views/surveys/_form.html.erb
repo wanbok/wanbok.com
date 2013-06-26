@@ -21,7 +21,7 @@
   <div data-role="content">
     <div data-role="fieldcontain">
       <%= f.label :user, '핸드폰 번호:' %>
-      <%= f.text_field :user, placeholder: "010-1234-1234", type: "tel" %>
+      <%= f.text_field :user, placeholder: "010-0000-0000", type: "tel" %>
     </div>
     <div data-role="fieldcontain">
       <fieldset data-role="controlgroup" data-type="vertical">
@@ -41,6 +41,10 @@
     <div data-role="fieldcontain">
       <%= f.label :age, '나이:' %>
       <%= f.text_field :age, placeholder: "나이를 숫자로만 적어주세요.", type: "number" %>
+    </div>
+    <div data-role="fieldcontain">
+      <%= f.label :usage_duration_per_day, '스마트폰 하루 사용시간:' %>
+      <%= f.text_field :usage_duration_per_day, placeholder: "하루 평균 스마트폰 사용시간을 적어주세요.", type: "number" %>
     </div>
 
     <% (1..15).each do |q| %>
