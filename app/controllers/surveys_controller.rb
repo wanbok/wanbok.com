@@ -29,19 +29,19 @@ class SurveysController < ApplicationController
     # - 1요인 해당 문항: 1, 5, 9, 12, (13)
     # - 3요인 해당 문항: 3, 7, (10), 14
     # - 4요인 해당 문항: 4, (8), 11, 15
-    aggregation[:part1] = survey.q1 + survey.q5 + survey.q12 + (5 - survey.q13)
-    aggregation[:part3] = survey.q3 + survey.q7 + (5 - survey.q10) + survey.q14
-    aggregation[:part4] = survey.q4 + (5 - survey.q8) + survey.q11 + survey.q15
-    aggregation[:total] = aggregation[:part1] + aggregation[:part3] + aggregation[:part4]
+    # aggregation[:part1] = survey.q1 + survey.q5 + survey.q12 + (5 - survey.q13)
+    # aggregation[:part3] = survey.q3 + survey.q7 + (5 - survey.q10) + survey.q14
+    # aggregation[:part4] = survey.q4 + (5 - survey.q8) + survey.q11 + survey.q15
+    # aggregation[:total] = aggregation[:part1] + aggregation[:part3] + aggregation[:part4]
 
-    # 집단분류
-    #  - 고위험군: ① 총점 45점 이상
-    #                ② 1요인 16점 이상 & 3요인 13점 이상  & 4요인 14점 이상
-    #  - 잠재적위험군: ① 42점 이상~44점 이하
-    #                ② 1요인 14점 이상  ③ 3요인 12점 이상  ④ 4요인 13점 이상
-    #  - 일반사용자군: ① 41점 이하
-    #                ② 1요인 13점 이하  ③ 3요인 11점 이하 ④ 4요인 12점 이하
-    aggregation[:class] = classificate(aggregation)
+    # # 집단분류
+    # #  - 고위험군: ① 총점 45점 이상
+    # #                ② 1요인 16점 이상 & 3요인 13점 이상  & 4요인 14점 이상
+    # #  - 잠재적위험군: ① 42점 이상~44점 이하
+    # #                ② 1요인 14점 이상  ③ 3요인 12점 이상  ④ 4요인 13점 이상
+    # #  - 일반사용자군: ① 41점 이하
+    # #                ② 1요인 13점 이하  ③ 3요인 11점 이하 ④ 4요인 12점 이하
+    # aggregation[:class] = classificate(aggregation)
 
     return aggregation
   end
