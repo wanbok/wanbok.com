@@ -4,7 +4,7 @@ class SurveysController < ApplicationController
   # GET /surveys
   # GET /surveys.json
   def index
-    @surveys = Survey.all
+    @surveys = Survey.all.map { |e| {survey: e, aggregation: aggregate(e)} }
 
     respond_to do |format|
       format.html # index.html.erb
