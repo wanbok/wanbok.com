@@ -11,16 +11,19 @@
     <th></th>
   </tr>
 
-<% @surveys.each do |survey| %>
+<%
+@surveys.each do |s|
+  survey = s['survey']
+%>
   <tr>
-    <td><%= survey.survey.title %></td>
-    <td><%= survey.survey.user %></td>
-    <td><%= survey.survey.sex %></td>
-    <td><%= survey.survey.age %></td>
-    <td><%= link_to 'Show', survey_path(survey.survey.user) %></td>
+    <td><%= survey.title %></td>
+    <td><%= survey.user %></td>
+    <td><%= survey.sex %></td>
+    <td><%= survey.age %></td>
+    <td><%= link_to 'Show', survey_path(survey.user) %></td>
 
-    <td><%= link_to 'Edit', edit_survey_path(survey.survey.user) %></td>
-    <td><%= link_to 'Destroy', survey_path(survey.survey.user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Edit', edit_survey_path(survey.user) %></td>
+    <td><%= link_to 'Destroy', survey_path(survey.user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
   </tr>
 <% end %>
