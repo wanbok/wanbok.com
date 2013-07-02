@@ -17,7 +17,7 @@
   aggregation = s[:aggregation]
 %>
   <tr>
-    <td><%= aggregation[:class] + "(" + aggregation[:total] + "점)" %></td>
+    <td><%= aggregation[:class] + "(" + aggregation[:total].to_s + "점)" %></td>
     <td><%= survey.user %></td>
     <td><%= survey.sex %></td>
     <td><%= survey.age %></td>
