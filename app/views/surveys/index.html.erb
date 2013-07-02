@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Title</th>
+    <th>분류</th>
     <th>User</th>
     <th>Sex</th>
     <th>Age</th>
@@ -14,9 +14,10 @@
 <%
 @surveys.each do |s|
   survey = s[:survey]
+  aggregation = s[:aggregation]
 %>
   <tr>
-    <td><%= survey.title %></td>
+    <td><%= aggregation[:class] + '(' + aggregation[:total] + '점)' %></td>
     <td><%= survey.user %></td>
     <td><%= survey.sex %></td>
     <td><%= survey.age %></td>
