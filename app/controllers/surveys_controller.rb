@@ -49,7 +49,7 @@ class SurveysController < ApplicationController
   def classificate(aggregation)
     if aggregation[:total] >= 45 && aggregation[:part1] >= 16 && aggregation[:part3] >= 13 && aggregation[:part4] >= 14
       return "고위험군" # encoding: UTF-8
-    elsif aggregation[:total] >= 42 && aggregation[:part1] >= 14 && aggregation[:part3] >= 12 && aggregation[:part4] >= 13
+    elsif aggregation[:total] >= 42 || aggregation[:part1] >= 14 || aggregation[:part3] >= 12 || aggregation[:part4] >= 13
       return "잠재적위험군" # encoding: UTF-8
     end
     return "일반사용자군" # encoding: UTF-8
