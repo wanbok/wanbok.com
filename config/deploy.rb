@@ -23,13 +23,13 @@ set :keep_releases, 2
 # set :rvm_ruby_string, '1.9.3'
 # set :rvm_type, :user
  
-after "deploy", "db:migrate", "deploy:cleanup"
+# after "deploy", "db:migrate", "deploy:cleanup"
  
-namespace :db do
-  task :migrate do
-    run " cd #{deploy_to}/current && bundle exec rake db:migrate RAILS_ENV=production"
-  end
-end
+# namespace :db do
+#   task :migrate do
+#     run " cd #{deploy_to}/current && bundle exec rake db:migrate RAILS_ENV=production"
+#   end
+# end
  
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do
