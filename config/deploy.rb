@@ -1,12 +1,12 @@
 # deploy.rb
 #=================================
  
-require "rvm/capistrano"
+# require "rvm/capistrano"
  
 default_run_options[:pty] = true
 set :application, "wanbok.com"
 set :repository,  "git@github.com:wanbok/wanbok.com.git"
-set :user, "wanbok"
+set :user,  Proc.new { Capistrano::CLI.password_prompt('User: ') }
 set :scm, :git
 set :scm_passphrase,  Proc.new { Capistrano::CLI.password_prompt('Git Password: ') }
 set :domain, "wanbok.com"
@@ -20,8 +20,8 @@ set :use_sudo, false
 set :deploy_to, "/var/www/#{application}"
 set :keep_releases, 2
  
-set :rvm_ruby_string, '1.9.3'
-set :rvm_type, :user
+# set :rvm_ruby_string, '1.9.3'
+# set :rvm_type, :user
  
 after "deploy", "db:migrate", "deploy:cleanup"
  
